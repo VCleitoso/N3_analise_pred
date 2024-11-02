@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  mysql:
+    build:
+      context: .  # Caminho do diretório onde está o Dockerfile
+      dockerfile: Dockerfile  # Nome do Dockerfile, se não for o padrão
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      LANG: pt_BR.UTF-8
+    ports:
+      - "3306:3306"
+    volumes:
+      #- ./data/mysql:/var/lib/mysql
+      #retirada persistência de dados, é desnecessária edá problema, caso queira, apagar o '#' acima.
+      #toda vez que rodar irá repetir o script abaixo:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
