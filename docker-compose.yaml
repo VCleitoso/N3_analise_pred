@@ -4,7 +4,7 @@ services:
     build:
       context: .  # Caminho do diretório onde está o Dockerfile
       dockerfile: Dockerfile  # Nome do Dockerfile, se não for o padrão
-    container_name: mysql-container
+    container_name: container_n3
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       LANG: pt_BR.UTF-8
